@@ -10,6 +10,9 @@ function App() {
   // ESTADO
   const [quote, setQuote] = useState(initialQuote);
 
+  // LOADING
+  const [loading,setLoading] = useState(true);
+
   const updateQuote = async () => {
     const url = "https://www.breakingbadapi.com/api/quote/random";
     const res = await fetch(url);
@@ -32,7 +35,11 @@ function App() {
     return (
       <div className='app'>
       <img src='https://upload.wikimedia.org/wikipedia/commons/7/77/Breaking_Bad_logo.svg' alt='logo' />
-      <button onClick={()=>alert('Click')}>Get Another</button>
+      <button onClick={()=>updateQuote()}>Get Another</button>
+
+      {/* OPERADOR TERNARIO LOADING */}
+
+      { loading ? <h1>Loading..</h1> : <Quote quote={quote} />}
 
       <Quote quote={quote}/>
   
