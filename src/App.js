@@ -10,10 +10,15 @@ function App() {
   // ESTADO
   const [quote, setQuote] = useState(initialQuote);
 
+  const updateQuote = async () => {
+    const url = "https://www.breakingbadapi.com/api/quote/random";
+    const res = await fetch(url);
+    const data = await res.json();
+  }
+
   useEffect(() => {
 
-    const url = "https://www.breakingbadapi.com/api/quote/random";
-    const res = fetch(url);
+  updateQuote();
     
 
   }, []);
