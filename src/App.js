@@ -11,9 +11,10 @@ function App() {
   const [quote, setQuote] = useState(initialQuote);
 
   // LOADING
-  const [loading,setLoading] = useState(true);
+  const [loading] = useState(true);
 
   const updateQuote = async () => {
+    
     const url = "https://www.breakingbadapi.com/api/quote/random";
     const res = await fetch(url);
     const [newQuote] = await res.json();
@@ -23,6 +24,7 @@ function App() {
       text,
       author,
     })
+  
   }
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function App() {
 
       {/* OPERADOR TERNARIO LOADING */}
 
-      { loading ? <h1>Loading..</h1> : <Quote quote={quote} />}
+      { loading ? <h1></h1>: <Quote quote={quote} />}
 
       <Quote quote={quote}/>
   
